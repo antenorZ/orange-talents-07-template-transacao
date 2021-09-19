@@ -17,18 +17,11 @@ public class TransacaoConsumer {
 
     private static final Logger log = LoggerFactory.getLogger(TransacaoConsumer.class);
 
-    @Value(value = "${spring.kafka.topic.transactions}")
-    private String topic;
-
-    @Value(value = "${spring.kafka.consumer.group-id}")
-    private String groupId;
-
     @Autowired
     private TransacaoRepository transacaoRepository;
 
-    @KafkaListener(topics = "${spring.kafka.topic.transactions}",
-            groupId = "${spring.kafka.consumer.group-id}",
-            containerFactory = "transacoesKafkaListenerContainerFactory")
+    @KafkaListener(topics = "${spring.kafka.topic.transactions}", containerFactory = "kafkaListenerContainerFactory")
+
     public void ouveTopicoTransacoes(ConsumerRecord<String, TransacaoDto> record, @Payload TransacaoDto transacaoDto){
         log.info("Mensagem Recebida - Partição: " + record.partition());
         log.info("Mensagem Recebida - Valor: " + record.value());

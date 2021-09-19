@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class TransacaoDto {
-    private String idExterno;
+    private String id;
 
     private Double valor;
 
@@ -25,11 +25,11 @@ public class TransacaoDto {
     }
 
     public Transacao toModel(){
-        return new Transacao(idExterno, valor, estabelecimento, cartao, efetivadaEm);
+        return new Transacao(id, valor, estabelecimento, cartao, efetivadaEm);
     }
 
-    public TransacaoDto(String idExterno, Double valor, Estabelecimento estabelecimento, Cartao cartao, LocalDateTime efetivadaEm) {
-        this.idExterno = idExterno;
+    public TransacaoDto(String id, Double valor, Estabelecimento estabelecimento, Cartao cartao, LocalDateTime efetivadaEm) {
+        this.id = id;
         this.valor = valor;
         this.estabelecimento = estabelecimento;
         this.cartao = cartao;

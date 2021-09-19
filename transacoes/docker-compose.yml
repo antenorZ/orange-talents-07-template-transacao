@@ -162,4 +162,4 @@ volumes:
   grafana-volume:
   prometheus-volume:
   postgres-volume:
-  transacoes-volume:
+  trasacoes-volume:

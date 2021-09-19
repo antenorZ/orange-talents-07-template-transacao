@@ -1,6 +1,7 @@
 package br.com.zup.transacoes.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Cartao {
@@ -12,6 +13,9 @@ public class Cartao {
     private String idExterno;
 
     private String email;
+
+    @OneToMany(mappedBy = "cartao", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Transacao> transacoes;
 
     public Cartao() {
     }
@@ -31,5 +35,9 @@ public class Cartao {
 
     public String getEmail() {
         return email;
+    }
+
+    public List<Transacao> getTransacoes() {
+        return transacoes;
     }
 }

@@ -32,4 +32,28 @@ public class Transacao {
         this.cartao = cartao;
         this.efetivadaEm = efetivadaEm;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getIdExterno() {
+        return idExterno;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public Estabelecimento getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public Cartao getCartao() {
+        return cartao;
+    }
+
+    public LocalDateTime getEfetivadaEm() {
+        return efetivadaEm;
+    }
 }
